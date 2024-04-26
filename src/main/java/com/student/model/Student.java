@@ -15,7 +15,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter @Setter
-    @JsonProperty("name")
+    @JsonProperty("id")
     private Long id;
     
     @Getter @Setter
