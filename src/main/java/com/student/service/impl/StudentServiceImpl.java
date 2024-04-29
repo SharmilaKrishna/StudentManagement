@@ -16,6 +16,7 @@ import com.student.service.StudentService;
 
 @Service
 public class StudentServiceImpl implements StudentService {
+
     private static final Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
 
     private final StudentRepository studentRepository;
@@ -73,4 +74,5 @@ public class StudentServiceImpl implements StudentService {
             logger.error("Error occurred while deleting student with id {}: {}", id, e.getMessage());
         }
     }
+
 }
