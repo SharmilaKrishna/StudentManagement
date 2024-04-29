@@ -62,9 +62,29 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student updateStudent(Long id, Student student) {
-        // Implementation for updateStudent method
-        return null;
+        try {
+            // Retrieve the student entity from the database
+            Optional<Student> optionalStudent = studentRepository.findById(id);
+            
+            if (optionalStudent.isPresent()) {
+                // Student exists, update its properties
+                Student existingStudent = optionalStudent.get();
+                existingStudent.setName(student.getName());
+                // Update other properties as needed
+                
+                // Save the updated student entity
+                return studentRepository.save(existingStudent);
+            } else {
+                // Student with the given ID not found
+                logger.warn("Student with ID {} not found for update.", id);
+                return null;
+            }
+        } catch (Exception e) {
+            logger.error("Error occurred while updating student with ID {}: {}", id, e.getMessage());
+            return null;
+        }
     }
+
 
     @Override
     public void deleteStudent(Long id) {

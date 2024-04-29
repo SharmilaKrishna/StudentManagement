@@ -99,6 +99,9 @@ public class Student {
 		this.schoolName = schoolName;
 	}
 
+	  public Student() {
+	        // Empty constructor required by Hibernate
+	    }
 
 	public Student(Long id, String name, String studentId, String grade, String mobileNumber,String schoolName) {
 		this.grade = grade;
